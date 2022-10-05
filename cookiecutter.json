@@ -1,0 +1,5 @@
+
+{
+  "kata_name": "KataName",
+  "directory_name": "{% now 'local', '%Y%m%d' %}_{{ cookiecutter.kata_name.lower().replace(' ', '_') }}"
+}
