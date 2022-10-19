@@ -6,6 +6,6 @@ describe('Template testing...', () => {
       expect(template).toBeDefined();
     });
     test('should be a template_method method...', () => {
-      expect(template_method).toEqual('Hello world');
+      expect(template_method()).toEqual('Hello world');
     });
   });
