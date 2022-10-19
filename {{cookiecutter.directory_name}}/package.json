@@ -9,7 +9,7 @@
       "test": "npm run test:unit && npm run test:bdd",
       "test:unit": "jest ./__tests__ --verbose",
       "test:unit:watch": "npm run test:unit -- --watchAll",
-      "test:bdd": "jest ./features --verbose",
+      "test:bdd": "jest ./bdd/features --verbose",
       "test:bdd:watch": "npm run test:bdd -- --watchAll",
       "coverage": "jest --coverage",
       "pre-commit": "lint-staged",
