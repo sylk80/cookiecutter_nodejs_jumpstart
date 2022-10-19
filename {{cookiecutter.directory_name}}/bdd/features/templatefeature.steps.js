@@ -6,7 +6,7 @@ const {
     Fusion,
 } = require("jest-cucumber-fusion")
 
-const { template_method } = require('../src/template')
+const { template_method } = require('../../src/template')
 
 let greeting
 
