@@ -17,4 +17,4 @@ if __name__ == '__main__':
     run_command('git init')
     run_command('npm install')
     run_command('npm test')
-    run_command('scripts/start.sh' + kata_name)
+    run_command('scripts/start.sh ' + kata_name)
