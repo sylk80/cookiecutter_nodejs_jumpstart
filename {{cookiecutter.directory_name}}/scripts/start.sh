@@ -5,7 +5,7 @@ TRUE=0
 FALSE=1
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-source ${DIR}/scripts/postworks.sh
+source ${DIR}/postworks.sh
 
 gh_authentication_check
 check_it_is_NOT_a_git_repository
