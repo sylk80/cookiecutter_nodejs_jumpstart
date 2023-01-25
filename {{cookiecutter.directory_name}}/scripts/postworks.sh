@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#GTH is the github token required to authenticate to git, must be present in the environment
+#PGTH is the private github token required to authenticate to git, must be present in the environment
 #GIT_ORG is the github organization / user name where the repository should be created
 
 function check_for_errors () {
@@ -16,7 +16,7 @@ function check_it_is_NOT_a_git_repository () {
 function gh_authentication () {
   echo " "
   echo "🔐 GH login ..."
-  gh auth login --with-token ${GHT}
+  gh auth login --with-token < ${PGHT}
 }
 
 
