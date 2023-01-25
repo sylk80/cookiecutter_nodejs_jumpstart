@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#GTH is the github token required to authenticate to git, must be present in the environment
+#GIT_ORG is the github organization / user name where the repository should be created
 
 function check_for_errors () {
   check_return_code $1 "$2" "$3"
@@ -16,14 +18,14 @@ function gh_authentication_check () {
   echo "🔐 GH login check..."
   gh auth status
   if [ $? -ne 0 ]; then 
-    exit 1
+    gh auth login --with-token ${GHT}
   fi
 }
 
 function create_the_repo () {
   echo " "
   echo "⚙️  creating the repository"
-  gh repo create $NEW_REPO_NAME --public --confirm 
+  gh repo create ${GIT_ORG}/$NEW_REPO_NAME --public --confirm
   check_for_errors $? "☑️  Repository cloned correctly"  "💥 GitHub client 🙀 terminated with an unexpected exit code..." 
 }
 
