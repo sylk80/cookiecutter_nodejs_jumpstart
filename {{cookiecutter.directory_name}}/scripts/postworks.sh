@@ -2,6 +2,14 @@
 #PGTH is the private github token required to authenticate to git, must be present in the environment
 #GIT_ORG is the github organization / user name where the repository should be created
 
+function check_return_code () {
+  # $1 = return code passed by $?
+  # $2 = command successful message
+  # $3 = error message
+  [[ $1 -eq 0  ]] && echo "$2" || echo "$3"
+}
+
+
 function check_for_errors () {
   check_return_code $1 "$2" "$3"
   [[ $1 -ne 0  ]] && exit 1
@@ -16,7 +24,7 @@ function check_it_is_NOT_a_git_repository () {
 function gh_authentication () {
   echo " "
   echo "🔐 GH login ..."
-  gh auth login --with-token < ${PGHT}
+  gh auth login --with-token < $PGHT
 }
 
 
@@ -32,7 +40,7 @@ function gh_authentication_check () {
 function create_the_repo () {
   echo " "
   echo "⚙️  creating the repository"
-  gh repo create ${GIT_ORG}/$NEW_REPO_NAME --public --confirm
+  gh repo create $GIT_ORG/$NEW_REPO_NAME --public --confirm
   check_for_errors $? "☑️  Repository cloned correctly"  "💥 GitHub client 🙀 terminated with an unexpected exit code..." 
 }
 
