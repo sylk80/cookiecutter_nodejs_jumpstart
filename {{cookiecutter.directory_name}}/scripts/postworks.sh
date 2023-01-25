@@ -9,16 +9,23 @@ function check_for_errors () {
 
 function check_it_is_NOT_a_git_repository () {
   [ -d .git ] && echo " " || return
-  echo "💥 FATAL ERROR! The directory is alredy a Git repository!"
+  echo "💥 FATAL ERROR! The directory is already a Git repository!"
   exit 1
 }
+
+function gh_authentication () {
+  echo " "
+  echo "🔐 GH login ..."
+  gh auth login --with-token ${GHT}
+}
+
 
 function gh_authentication_check () {
   echo " "
   echo "🔐 GH login check..."
   gh auth status
   if [ $? -ne 0 ]; then 
-    gh auth login --with-token ${GHT}
+    exit 1
   fi
 }
 
