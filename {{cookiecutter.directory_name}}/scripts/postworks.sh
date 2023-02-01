@@ -41,6 +41,7 @@ function create_the_repo () {
   echo " "
   echo "⚙️  creating the repository"
   gh repo create $GIT_ORG/$NEW_REPO_NAME --public --confirm
+  git branch -M main
   check_for_errors $? "☑️  Repository cloned correctly"  "💥 GitHub client 🙀 terminated with an unexpected exit code..." 
 }
 

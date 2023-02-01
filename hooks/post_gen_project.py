@@ -14,9 +14,9 @@ def run_command(command):
 
 
 if __name__ == '__main__':
-    run_command('git init')
-    run_command('npm install')
-    run_command('npm test')
+ #  run_command('git init')
+ #   run_command('npm install')
+ #   run_command('npm test')
     run_command('chmod +x scripts/*.sh')
     run_command('ls -la scripts/')
     run_command('./scripts/start.sh ' + kata_name)
