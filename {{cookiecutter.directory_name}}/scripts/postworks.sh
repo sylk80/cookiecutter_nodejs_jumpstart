@@ -40,7 +40,7 @@ function gh_authentication_check () {
 function create_the_repo () {
   echo " "
   echo "⚙️  creating the repository"
-  gh repo create $GIT_ORG/$NEW_REPO_NAME --public --source=. --remote=origin
+  gh repo create $GIT_ORG/$NEW_REPO_NAME --public --source=. --remote=https://github.com/$GIT_ORG/$NEW_REPO_NAME
   git init
   git branch -M main
 #  git remote add origin https://github.com/$GIT_ORG/$NEW_REPO_NAME
