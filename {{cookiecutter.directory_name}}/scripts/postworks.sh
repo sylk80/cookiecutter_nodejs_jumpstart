@@ -40,6 +40,7 @@ function gh_authentication_check () {
 function create_the_repo () {
   echo " "
   echo "⚙️  creating the repository"
+  gh auth setup-git -h=github.com
   git init
   gh repo create $GIT_ORG/$NEW_REPO_NAME --public --source=. --remote=origin
   git branch -M main
