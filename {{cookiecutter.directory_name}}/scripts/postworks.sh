@@ -43,6 +43,7 @@ function create_the_repo () {
   gh repo create $GIT_ORG/$NEW_REPO_NAME --public --confirm
   git init
   git branch -M main
+  git remote add origin https://github.com/$GIT_ORG/$NEW_REPO_NAME
   check_for_errors $? "☑️  Repository cloned correctly"  "💥 GitHub client 🙀 terminated with an unexpected exit code..." 
 }
 
