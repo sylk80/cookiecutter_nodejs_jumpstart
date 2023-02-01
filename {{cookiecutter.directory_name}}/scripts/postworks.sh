@@ -41,7 +41,7 @@ function create_the_repo () {
   echo " "
   echo "⚙️  creating the repository"
   git init
-  gh repo create $GIT_ORG/$NEW_REPO_NAME --public --source=. --remote=https://github.com/$GIT_ORG/$NEW_REPO_NAME
+  gh repo create $GIT_ORG/$NEW_REPO_NAME --public --source=. --remote=origin
   git branch -M main
 #  git remote add origin https://github.com/$GIT_ORG/$NEW_REPO_NAME
   check_for_errors $? "☑️  Repository cloned correctly"  "💥 GitHub client 🙀 terminated with an unexpected exit code..." 
