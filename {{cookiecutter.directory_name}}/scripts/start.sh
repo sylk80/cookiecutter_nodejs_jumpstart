@@ -15,5 +15,6 @@ create_the_repo
 set_the_remote
 npm_install
 npm_test
+git_commit_all
 git_push_all
 enjoy

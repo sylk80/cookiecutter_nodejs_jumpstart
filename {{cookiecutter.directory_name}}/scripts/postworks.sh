@@ -21,6 +21,11 @@ function check_it_is_NOT_a_git_repository () {
   exit 1
 }
 
+function ensure_the_directory_is_the_new_repository () {
+  [[ "$PWD" =~ "$NEW_REPO_NAME"  ]] && return $TRUE || echo "💥 seem the repository directory isn't created correctly!"
+  exit 1
+}
+
 function gh_authentication () {
   echo " "
   echo "🔐 GH login ..."
@@ -59,13 +64,13 @@ function set_the_remote () {
   echo "⚙️  set remote for new repository"
   git branch -M main
   git remote set-url origin https://github.com/$GIT_ORG/$NEW_REPO_NAME.git
-  check_for_errors $? "☑️  Repository cloned correctly"  "💥 git command 🙀 terminated with an unexpected exit code..."
+  check_for_errors $? "☑️  Remore created correctly"  "💥 git command 🙀 terminated with an unexpected exit code..."
 }
 
 function npm_install () {
   echo " "
   echo "🚧 npm install 🚧"
-  echo "⏱️  long operation ahead, be patience..."
+  echo "⏱️  long operation ahead, be patient..."
   ensure_the_directory_is_the_new_repository
   npm install
   check_for_errors $? "☑️  npm install completed." "💥 npm install exploded 💣💣💣..."
