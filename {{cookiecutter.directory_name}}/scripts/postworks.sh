@@ -23,12 +23,9 @@ function check_it_is_NOT_a_git_repository () {
 
 function ensure_the_directory_is_the_new_repository () {
   PWD=$(pwd)
-  echo "Checking variables"
-  echo $PWD
-  echo $NEW_REPO_NAME
-  echo $PWD =~ $NEW_REPO_NAME
-  echo "$PWD" =~ "$NEW_REPO_NAME"
+  shopt -s nocasematch
   [[ $PWD =~ $NEW_REPO_NAME  ]] && return $TRUE || echo "💥 seem the repository directory isn't created correctly!"
+  shopt -u nocasematch
   exit 1
 }
 
