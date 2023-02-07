@@ -22,7 +22,7 @@ function check_it_is_NOT_a_git_repository () {
 }
 
 function ensure_the_directory_is_the_new_repository () {
-  [[ "$PWD" =~ "$NEW_REPO_NAME"  ]] && return $TRUE || echo "💥 seem the repository directory isn't created correctly!"
+  [[ "$PWD" =~ $NEW_REPO_NAME  ]] && return $TRUE || echo "💥 seem the repository directory isn't created correctly!"
   exit 1
 }
 
