@@ -9,6 +9,11 @@ source ${DIR}/postworks.sh
 
 gh_authentication
 gh_authentication_check
+set_git_credential_helper
 check_it_is_NOT_a_git_repository
 create_the_repo
+set_the_remote
+npm_install
+npm_test
 git_push_all
+enjoy

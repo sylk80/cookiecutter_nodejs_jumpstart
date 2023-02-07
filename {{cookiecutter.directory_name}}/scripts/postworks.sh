@@ -37,26 +37,65 @@ function gh_authentication_check () {
   fi
 }
 
+function set_git_credential_helper () {
+  echo " "
+    echo "🔐 set git credential helper..."
+    gh auth setup-git -h=github.com
+    if [ $? -ne 0 ]; then
+        exit 1
+      fi
+}
+
 function create_the_repo () {
   echo " "
   echo "⚙️  creating the repository"
-  gh auth setup-git -h=github.com
   git init
   gh repo create $GIT_ORG/$NEW_REPO_NAME --public --source=. --remote=origin
+  check_for_errors $? "☑️  Repository created correctly"  "💥 GitHub client 🙀 terminated with an unexpected exit code..."
+}
+
+function set_the_remote () {
+  echo " "
+  echo "⚙️  set remote for new repository"
   git branch -M main
   git remote set-url origin https://github.com/$GIT_ORG/$NEW_REPO_NAME.git
-#  git remote add origin https://github.com/$GIT_ORG/$NEW_REPO_NAME
-  check_for_errors $? "☑️  Repository cloned correctly"  "💥 GitHub client 🙀 terminated with an unexpected exit code..." 
+  check_for_errors $? "☑️  Repository cloned correctly"  "💥 git command 🙀 terminated with an unexpected exit code..."
+}
+
+function npm_install () {
+  echo " "
+  echo "🚧 npm install 🚧"
+  echo "⏱️  long operation ahead, be patience..."
+  ensure_the_directory_is_the_new_repository
+  npm install
+  check_for_errors $? "☑️  npm install completed." "💥 npm install exploded 💣💣💣..."
+}
+
+function npm_test () {
+  echo " "
+  echo "🧪👨‍🔬 time to test if everything is working..."
+  ensure_the_directory_is_the_new_repository
+  npm test
+  check_return_code $? "☑️  npm test setup correctly." "💥 npm test exploded 💣💣💣..."
+}
+
+function git_commit_all () {
+  echo " "
+  echo "🔏 time to write and lock the updates into GitHub."
+  git add --all
+  git commit -m "chore: tuned the template to the new repo"
+  check_for_errors $? "☑️  All the tuned files added to git." "💥 something went wrong during the commit into git..."  
 }
 
 function git_push_all () {
   echo " "
   echo "🔏 time to write and lock the updates into GitHub."
-  git add --all
-  git commit -m "chore: tuned the template to the new repo"
-  check_for_errors $? "☑️  All the tuned files added to git." "💥 something went wrong during the commit into git..." 
-  
+
   git push --set-upstream origin main
-  check_for_errors $? "☑️  everything is committed into GitHub." "💥 pushing the files into GitHub raised a critical error..." 
+  check_for_errors $? "☑️  everything is committed into GitHub." "💥 pushing the files into GitHub raised a critical error..."
 }
 
+function enjoy () {
+  echo " "
+  echo "🥳 Enjoy! The repo is ready to rock 🤘 Update the README.md and code... 📟"
+}
