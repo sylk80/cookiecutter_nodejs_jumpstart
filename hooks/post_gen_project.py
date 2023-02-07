@@ -11,8 +11,8 @@ kata_name = '{{ cookiecutter.kata_name}}'
 
 def run_command(command):
     subprocess.run(command, cwd=PROJECT_DIRECTORY, shell=True, check=True, timeout=360)
-        if completed_process.returncode != 0:
-            raise Exception(f'Command {command} failed with return code {completed_process.returncode}')
+    if completed_process.returncode != 0:
+        raise Exception(f'Command {command} failed with return code {completed_process.returncode}')
 
 
 if __name__ == '__main__':
