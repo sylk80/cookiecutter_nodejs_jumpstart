@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #SONAR is the private sonarcloud token required to access sonarcloud, must be present in the environment
+#SNYK is the private snyk token required to access snyk, must be present in the environment
 #GIT_ORG is the github organization / user name where the repository should be created
 
 function integrate_with_the_external_analysis_tools () {
@@ -61,4 +62,21 @@ function create_the_new_sonarcloud_project () {
   check_return_code $? \
                     "\n🥳 SonarCloud connected successfully." \
                     "\n❌ SonarCloud connection error. 😰 Don't panic 😱..."
+}
+
+function connect_with_snyk () {
+  echo "👮 Snyk connection in progress..."
+  echo "🔍 Search for the SNYK snyk token..."
+  if [ $SNYK = "" ]; then
+    echo "☹️ your SNYK environmental variable isn't defined."
+    echo "⚠️ install snyk client and export the token into your .*shrc"
+    echo "🔗 to install the client read here: https://github.com/snyk/snyk#installation"
+    echo "   to get the API token run 'snyk config get api'."
+    echo "💥 Snyk integration failed."
+    return
+  else
+    echo "🔑 SNYK_TOKEN secret creation in progress..."
+    gh secret set SNYK_TOKEN -R $GIT_ORG/$NEW_REPO_NAME" -b $SNYK
+  fi
+  echo "\n🛡️ Snyk connected."
 }
