@@ -18,3 +18,9 @@ def run_command(command):
 if __name__ == '__main__':
     run_command('chmod +x scripts/*.sh')
     run_command('./scripts/start.sh ' + kata_name)
+    run_command('rm -r scripts')
+    print('😻 git commit the cript removal...')
+    run_command(f'git commit -m "chore: script directory removal"')
+
+    print('😻 git push the script removal...')
+    run_command(f'git push -u origin main')
