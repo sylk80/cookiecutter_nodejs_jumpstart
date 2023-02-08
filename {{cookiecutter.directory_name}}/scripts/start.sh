@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env bash
 
 NEW_REPO_NAME=$1
 TRUE=0

@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env bash
 #PGTH is the private github token required to authenticate to git, must be present in the environment
 #GIT_ORG is the github organization / user name where the repository should be created
 

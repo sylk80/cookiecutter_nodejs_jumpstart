@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env bash
 #SONAR is the private sonarcloud token required to access sonarcloud, must be present in the environment
 #GIT_ORG is the github organization / user name where the repository should be created
 
