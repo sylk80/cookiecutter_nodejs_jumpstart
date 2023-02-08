@@ -105,5 +105,5 @@ function git_push_all () {
 
 function enjoy () {
   echo " "
-  echo "🥳 Enjoy! The repo is ready to rock 🤘 Update the README.md and code... 📟"
+  echo "🥳 Enjoy! The repo is almost ready to rock 🤘 Just a little more clean up... 📟"
 }

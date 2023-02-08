@@ -16,11 +16,11 @@ def run_command(command):
 
 
 if __name__ == '__main__':
+    print('😻 Running the setup scripts ...')
     run_command('chmod +x scripts/*.sh')
     run_command('./scripts/start.sh ' + kata_name)
+    print('😻 remove the helper scripts...')
     run_command('rm -r scripts')
-    print('😻 git commit the cript removal...')
-    run_command(f'git commit -m "chore: script directory removal"')
-
-    print('😻 git push the script removal...')
+    print('😻 finalize the script removal...')
+    run_command(f'git commit -a -m "chore: script directory removal"')
     run_command(f'git push -u origin main')
