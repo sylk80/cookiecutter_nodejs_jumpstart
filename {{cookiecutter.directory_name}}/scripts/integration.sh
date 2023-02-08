@@ -76,7 +76,7 @@ function connect_with_snyk () {
     return
   else
     echo "🔑 SNYK_TOKEN secret creation in progress..."
-    gh secret set SNYK_TOKEN -R $GIT_ORG/$NEW_REPO_NAME" -b $SNYK
+    gh secret set SNYK_TOKEN -R $GIT_ORG/$NEW_REPO_NAME -b $SNYK
   fi
   echo "\n🛡️ Snyk connected."
 }
