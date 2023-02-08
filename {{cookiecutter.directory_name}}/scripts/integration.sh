@@ -80,8 +80,3 @@ function connect_with_snyk () {
   fi
   echo "\n🛡️ Snyk connected."
 }
-
-function run_gh_build_action () {
-    echo "Try to run github build workflow..."
-    gh workflow run build.yml
-}

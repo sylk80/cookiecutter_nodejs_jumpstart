@@ -19,5 +19,4 @@ npm_test
 integrate_with_the_external_analysis_tools
 git_commit_all
 git_push_all
-run_gh_build_action
 enjoy
