@@ -7,7 +7,7 @@ function integrate_with_the_external_analysis_tools () {
   echo " "
   echo "🔌 Integration with the external analysis platforms."
   connect_with_sonarcloud
- # connect_with_snyk
+  connect_with_snyk
 }
 
 function connect_with_sonarcloud () {
